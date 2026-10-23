@@ -1,0 +1,13 @@
+{
+  "name": "jcet-student-survey",
+  "version": "1.0.0",
+  "description": "Student Expectations & College Experience Survey for Jawaharlal College of Engineering and Technology",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node scripts/seed.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED",
+  "private": true
+}

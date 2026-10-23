@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Insights report · JCET Student Survey</title>
+  <link rel="icon" href="/assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/report.css" />
+</head>
+<body class="report-page">
+  <div class="toolbar no-print">
+    <div class="tb-left">
+      <span class="logo-mark sm" role="img" aria-label="Nehru Group of Institutions logo"></span>
+      <div><strong>Insights report</strong><span id="tb-sub">Preparing…</span></div>
+    </div>
+    <div class="tb-right">
+      <label class="tb-check"><input type="checkbox" id="opt-comments" checked /> <span>Include student comments</span></label>
+      <a class="btn btn-ghost btn-sm" href="/admin">Back to dashboard</a>
+      <button class="btn btn-gold btn-sm" id="print-btn" type="button" disabled>Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <p class="state no-print" id="state">Loading report…</p>
+  <div class="sheet" id="sheet" hidden></div>
+
+  <script src="/questions.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/analytics.js"></script>
+  <script src="/js/report.js"></script>
+</body>
+</html>

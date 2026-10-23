@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Expectations Survey · JCET</title>
+  <meta name="description" content="Share what you expect from your college experience. A short survey by Jawaharlal College of Engineering and Technology, Nehru Group of Institutions." />
+  <meta name="theme-color" content="#2e3192" />
+  <link rel="icon" href="/assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    (function () { try { var t = localStorage.getItem('jcet-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+  </script>
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Nehru Group of Institutions, JCET Student Survey">
+        <span class="logo-mark" role="img" aria-label="Nehru Group of Institutions logo"></span>
+        <span class="brand-text"><strong>JCET Student Survey</strong><span>Nehru Group of Institutions</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">Why it matters</a>
+        <a href="#survey">Survey</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-progress" id="nav-progress" type="button" hidden aria-label="Survey progress">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="trk" cx="18" cy="18" r="15" /><circle class="bar" cx="18" cy="18" r="15" /></svg>
+          <span id="nav-progress-text">0/30</span>
+        </button>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light and dark theme">
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        </button>
+        <a class="btn btn-primary btn-sm nav-cta" href="#survey">Start survey</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ================================ HERO ================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="orb orb-c"></div>
+        <div class="hero-dots"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow hero-in" style="--i:0"><span class="dot"></span> Jawaharlal College of Engineering &amp; Technology</p>
+          <h1 class="hero-title">
+            <span class="w" style="--i:1">Shape</span> <span class="w" style="--i:2">the</span> <span class="w" style="--i:3">campus</span>
+            <span class="w" style="--i:4">you</span> <span class="w" style="--i:5">will</span> <em class="w" style="--i:6">call&nbsp;home</em><span class="w" style="--i:6">.</span>
+          </h1>
+          <p class="hero-sub hero-in" style="--i:7">
+            The <strong>Student Expectations &amp; College Experience Survey</strong> tells us what matters to you before you choose a college, from teaching and placements to hostels and campus life.
+          </p>
+          <div class="hero-cta hero-in" style="--i:8">
+            <a class="btn btn-cta" href="#survey">Begin the survey
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn-ghost" href="#about">Why your voice matters</a>
+          </div>
+          <ul class="hero-stats hero-in" style="--i:9">
+            <li><strong>30</strong><span>questions</span></li>
+            <li><strong>~6 min</strong><span>to complete</span></li>
+            <li><strong>7</strong><span>short sections</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual hero-in" style="--i:5">
+          <div class="logo-card">
+            <img src="/assets/logo.jpg" width="400" height="400" alt="Nehru Group of Institutions: Moulding True Citizens" />
+          </div>
+          <div class="preview" aria-hidden="true">
+            <span class="preview-tag">Sample question</span>
+            <p class="preview-q">How important are placement opportunities?</p>
+            <div class="preview-rate">
+              <span style="--i:0">1</span><span style="--i:1">2</span><span style="--i:2">3</span><span style="--i:3">4</span><span style="--i:4">5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- =============================== ABOUT =============================== -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Why it matters</p>
+          <h2>Built around <em>your</em> expectations</h2>
+          <p class="lede">Great colleges are designed by listening. Your answers help us understand what students and families truly look for, and where we should invest next.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal" style="--d:0ms">
+            <div class="card-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" /></svg></div>
+            <h3>Your voice, our roadmap</h3>
+            <p>Responses are analysed by management to shape teaching, placements, campus facilities and student support.</p>
+          </article>
+          <article class="card reveal" style="--d:120ms">
+            <div class="card-ic ic-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2.5" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg></div>
+            <h3>Your details stay private</h3>
+            <p>Your name and email are used only for this survey and are visible only to the college admin team. Nothing is published.</p>
+          </article>
+          <article class="card reveal" style="--d:240ms">
+            <div class="card-ic ic-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg></div>
+            <h3>Quick and simple</h3>
+            <p>Tap to rate, pick your top choices and add a few words at the end. Your progress is saved on this device as you go.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== SURVEY ============================== -->
+    <section class="survey" id="survey">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The survey</p>
+          <h2>Tell us what <em>you</em> want</h2>
+          <p class="lede">Start with your name and email, then questions 1&ndash;28 are required. The two open questions at the end are optional, but they are the ones management reads first.</p>
+        </div>
+
+        <div class="survey-layout">
+          <aside class="rail" aria-label="Survey sections">
+            <div class="rail-card">
+              <div class="rail-top">
+                <span>Your progress</span>
+                <strong id="rail-pct">0%</strong>
+              </div>
+              <div class="rail-bar"><i id="rail-bar"></i></div>
+              <ol class="rail-list" id="rail-list"></ol>
+            </div>
+          </aside>
+
+          <form id="survey-form" novalidate autocomplete="on">
+            <div id="sections"></div>
+
+            <div class="hp" aria-hidden="true">
+              <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            </div>
+
+            <div class="submit-card reveal zoom" id="submit-card">
+              <div>
+                <h3>All set?</h3>
+                <p id="submit-hint">Answer every required question to submit.</p>
+              </div>
+              <button class="btn btn-cta btn-lg" type="submit" id="submit-btn">
+                Submit my responses
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z" /></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== THANK YOU ============================= -->
+    <section class="thanks" id="thanks" hidden>
+      <div class="thanks-card">
+        <div class="check" aria-hidden="true">
+          <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" /><path d="M15 27l8 8 14-16" /></svg>
+        </div>
+        <p class="kicker">Response recorded</p>
+        <h2>Thank you, <em id="thanks-name">truly.</em></h2>
+        <p class="lede">Your voice is now part of how Jawaharlal College of Engineering &amp; Technology plans its future. We read every response.</p>
+        <div class="thanks-actions">
+          <button class="btn btn-cta" id="again-btn" type="button">Submit another response</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <img class="footer-logo" src="/assets/logo.jpg" width="400" height="400" alt="Nehru Group of Institutions" loading="lazy" />
+      <p><strong>Jawaharlal College of Engineering &amp; Technology</strong><br />Student Expectations &amp; College Experience Survey &middot; Your details and responses are used for institutional planning only.</p>
+    </div>
+  </footer>
+
+  <script src="/questions.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/survey.js"></script>
+</body>
+</html>

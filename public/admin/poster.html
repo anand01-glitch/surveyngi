@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Survey poster · JCET</title>
+  <link rel="icon" href="/assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/poster.css" />
+</head>
+<body class="poster-page">
+  <div class="toolbar no-print">
+    <div class="tb-left">
+      <span class="logo-mark sm" role="img" aria-label="Nehru Group of Institutions logo"></span>
+      <div><strong>Survey poster</strong><span>A4 &middot; print or save as PDF</span></div>
+    </div>
+    <div class="tb-right">
+      <button class="btn btn-ghost btn-sm" id="close-btn" type="button">Close</button>
+      <button class="btn btn-gold btn-sm" id="print-btn" type="button">Print poster</button>
+    </div>
+  </div>
+
+  <p class="poster-error" id="poster-error" hidden>
+    This poster needs a valid survey address. Go back to the dashboard&rsquo;s <b>Share survey</b> section, choose an address, and click <b>Print poster</b>.
+  </p>
+
+  <div class="stage" id="stage">
+    <div class="sheet-wrap">
+      <article class="poster" id="poster">
+        <div class="deco d1" aria-hidden="true"></div>
+        <div class="deco d2" aria-hidden="true"></div>
+        <div class="deco d3" aria-hidden="true"></div>
+
+        <header class="p-head">
+          <img class="p-logo" src="/assets/logo.jpg" width="400" height="400" alt="Nehru Group of Institutions" />
+          <div class="p-college">
+            <b>Jawaharlal College of Engineering &amp; Technology</b>
+            <span>Nehru Group of Institutions</span>
+          </div>
+        </header>
+
+        <section class="p-hero">
+          <p class="p-kicker">Student Expectations Survey</p>
+          <h1>Your voice<br />shapes our <em>campus.</em></h1>
+          <p class="p-sub">Tell us what matters to you in a college. It takes about 6 minutes.</p>
+        </section>
+
+        <section class="p-qr">
+          <div class="p-qrcard"><div class="p-qrbox" id="qr"></div></div>
+          <p class="p-scan">Scan with your phone camera</p>
+          <p class="p-url" id="url"></p>
+        </section>
+
+        <ol class="p-steps">
+          <li><b>1</b><span>Scan the code or type the link</span></li>
+          <li><b>2</b><span>Answer 30 quick questions</span></li>
+          <li><b>3</b><span>Submit &mdash; you&rsquo;re done!</span></li>
+        </ol>
+
+        <footer class="p-foot">Your details are used only for this survey and are seen only by the college admin team.</footer>
+      </article>
+    </div>
+  </div>
+
+  <script src="/vendor/qrcode.js"></script>
+  <script src="/js/qr.js"></script>
+  <script src="/js/poster.js"></script>
+</body>
+</html>

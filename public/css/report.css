@@ -1,0 +1,133 @@
+/* Printable insights report (A4). Reuses chart classes from admin.css; overrides make them static and compact. */
+@page {
+  size: A4;
+  margin: 14mm 13mm 17mm;
+  @bottom-left { content: 'JCET Student Survey · Insights report'; font: 7.5pt Inter, sans-serif; color: #6b7399; }
+  @bottom-right { content: 'Page ' counter(page) ' of ' counter(pages); font: 7.5pt Inter, sans-serif; color: #6b7399; }
+}
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+[hidden] { display: none !important; }
+body.report-page { background: #dde5f1; margin: 0; font-size: 9.5pt; line-height: 1.5; color: #121538; }
+
+/* toolbar (screen only) */
+.toolbar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.7rem 1.2rem; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.tb-left { display: flex; align-items: center; gap: 0.8rem; min-width: 0; }
+.tb-left strong { display: block; font-family: var(--font-display); font-weight: 800; line-height: 1.15; }
+.tb-left span:not(.logo-mark) { font-size: 0.78rem; color: var(--ink-3); }
+.tb-right { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.tb-check { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; font-weight: 600; color: var(--ink-2); cursor: pointer; }
+.tb-check input { width: 18px; height: 18px; accent-color: #2e3192; }
+.state { max-width: 560px; margin: 4rem auto; padding: 1.4rem 1.6rem; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--ink-2); text-align: center; }
+.state a { color: var(--brand-ink); font-weight: 700; }
+
+/* the paper */
+.sheet { width: 210mm; max-width: calc(100% - 24px); margin: 22px auto 70px; background: #fff; padding: 14mm 13mm 16mm; box-shadow: 0 24px 70px -24px rgba(30, 40, 120, 0.5); border-radius: 3px; }
+.rpage.first { padding-bottom: 2mm; }
+
+/* cover */
+.r-brand { display: flex; align-items: center; gap: 4mm; }
+.r-brand img { width: 20mm; height: 20mm; border-radius: 4mm; border: 0.3mm solid rgba(46, 49, 146, 0.18); object-fit: contain; background: #fff; }
+.r-brand b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 12pt; line-height: 1.2; color: #2e3192; }
+.r-brand span { display: block; margin-top: 0.8mm; font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #5b6390; }
+.r-cover .kicker { margin-top: 6mm; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; color: #0a6ea8; }
+.r-cover h1 { font-family: var(--font-display); font-weight: 800; font-size: 22pt; line-height: 1.1; letter-spacing: -0.02em; margin: 1mm 0 3mm; color: #121538; }
+.r-cover h1::after { content: ''; display: block; width: 24mm; height: 1.2mm; margin-top: 3mm; border-radius: 1mm; background: linear-gradient(90deg, #00aeef, #2e3192 70%, #f7941d); }
+.r-meta { display: flex; flex-wrap: wrap; gap: 2mm 8mm; margin: 3mm 0 4mm; }
+.r-meta dt { font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; color: #6b7399; font-weight: 700; }
+.r-meta dd { margin: 0; font-weight: 600; font-size: 9pt; }
+.r-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 4mm; }
+.r-kpi { border: 0.3mm solid rgba(46, 49, 146, 0.16); border-top: 1mm solid #00aeef; border-radius: 3mm; padding: 3mm 3.5mm; background: #fff; break-inside: avoid; }
+.r-kpi:nth-child(2) { border-top-color: #2e3192; } .r-kpi:nth-child(3) { border-top-color: #f7941d; } .r-kpi:nth-child(4) { border-top-color: #14804a; }
+.r-kpi span { display: block; font-size: 6.8pt; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7399; font-weight: 700; }
+.r-kpi b { display: block; margin: 1mm 0 0.5mm; font-family: var(--font-display); font-weight: 800; font-size: 11.5pt; line-height: 1.2; }
+.r-kpi:first-child b { font-size: 21pt; line-height: 1.05; }
+.r-kpi em { font-style: normal; font-size: 7.5pt; color: #474f78; }
+.r-warn { margin: 0 0 5mm; padding: 3mm 4mm; border-radius: 3mm; background: #fff3e0; border: 0.3mm solid #f7941d; font-size: 8.5pt; }
+.r-find { margin-top: 4mm; break-inside: avoid; }
+.r-find h2 { font-family: var(--font-display); font-weight: 800; font-size: 12pt; margin-bottom: 2mm; color: #121538; }
+.r-find ol { margin: 0; padding-left: 5mm; display: grid; gap: 1.1mm; font-size: 8.5pt; line-height: 1.4; }
+.r-find li::marker { color: #00aeef; font-weight: 800; }
+.r-prios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+.r-prio { border: 0.3mm solid rgba(46, 49, 146, 0.16); border-radius: 3mm; padding: 3mm 3.5mm; }
+.r-prio h4 { font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; color: #0a6ea8; margin: 0 0 1.5mm; font-weight: 800; }
+.r-prio ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 1mm; }
+.r-prio li { display: flex; justify-content: space-between; gap: 2mm; font-size: 8.3pt; line-height: 1.3; border-bottom: 0.2mm solid rgba(46, 49, 146, 0.08); padding-bottom: 0.8mm; }
+.r-prio li b { flex: none; font-variant-numeric: tabular-nums; }
+
+/* sections */
+.rsec { margin-top: 12mm; padding-top: 6mm; border-top: 0.3mm solid rgba(46, 49, 146, 0.16); }
+.rsec-h .kicker { font-size: 7.5pt; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; color: #0a6ea8; }
+.rsec-h h2 { font-family: var(--font-display); font-weight: 800; font-size: 17pt; line-height: 1.15; letter-spacing: -0.015em; margin: 1mm 0 1.5mm; }
+.rintro { color: #474f78; font-size: 9pt; margin-bottom: 4mm; }
+.rgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items: start; }
+.rcard { border: 0.3mm solid rgba(46, 49, 146, 0.16); border-radius: 3mm; padding: 3.5mm 4mm 3mm; background: #fff; break-inside: avoid; margin-bottom: 4mm; }
+.rgrid > .rcard { margin-bottom: 0; }
+.rcard.wide { grid-column: 1 / -1; }
+.rcard h3 { font-size: 9.5pt; font-weight: 700; line-height: 1.3; }
+.rsub { font-size: 7.3pt; color: #6b7399; margin: 0.5mm 0 2.5mm; }
+.rnote { font-size: 7.3pt; color: #6b7399; margin-top: 2mm; }
+.rstack { display: grid; gap: 4mm; }
+
+/* chart overrides: static, compact, print-safe */
+.rcard .hbs { gap: 0; }
+.rcard .hb { grid-template-columns: minmax(70px, 44%) minmax(0, 1fr) 46px; gap: 2mm; padding: 0.35mm 0; margin: 0; }
+.rcard .hb:hover, .rcard .rs:hover { background: transparent; }
+.rcard .hb-l, .rcard .rs-l { font-size: 7.8pt; line-height: 1.25; }
+.rcard .hb-t { height: 3mm; }
+.rcard .hb-t i { transform: none; transition: none; border-radius: 0 1mm 1mm 0; }
+.rcard .hb-v { font-size: 7.8pt; }
+.rcard .hb-v small { display: none; }
+.rcard .rs { grid-template-columns: minmax(80px, 30%) minmax(0, 1fr) 28px; gap: 2.5mm; padding: 0.9mm 0; margin: 0; }
+.rcard .rs-t { height: 4.2mm; clip-path: none; transition: none; }
+.rcard .rs-t b { font-size: 6.5pt; }
+.rcard .rs-v { font-size: 8.5pt; }
+.rcard .legend { font-size: 7pt; gap: 1mm 4mm; margin-bottom: 3mm; }
+.rcard .avg-fig { margin-bottom: 2mm; }
+.rcard .avg-fig b { font-size: 16pt; }
+.rcard .avg-fig span { font-size: 7.5pt; }
+.rcard .hm-scroll { margin: 0; padding: 0; overflow-x: auto; }
+.rcard .hm { min-width: 0; width: 100%; font-size: 7.2pt; border-spacing: 0.8mm; }
+.rcard .hm th { font-size: 6.4pt; padding: 0.8mm 0; }
+.rcard .hm td { padding: 1.3mm 0; border-radius: 1mm; }
+.rcard .hm td.rowh { position: static; box-shadow: none; background: transparent; padding-right: 2mm; }
+.rcard .hm th:first-child { position: static; box-shadow: none; background: transparent; }
+.rcard .hm td[data-b]:hover { transform: none; }
+.rcard .hm-legend { font-size: 7pt; margin-top: 2mm; }
+.rcard .hm-legend .ramp i { width: 5mm; height: 2.4mm; }
+.trend { width: 100%; }
+.trend svg { width: 100%; height: auto; display: block; }
+.trend .line { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
+.trend text { font-size: 10px; }
+
+/* comments */
+.rh3 { font-family: var(--font-display); font-weight: 800; font-size: 11pt; margin: 5mm 0 0.5mm; break-after: avoid; }
+.rquote { margin: 0 0 2.2mm; padding: 2.5mm 3.5mm; border-left: 1mm solid #00aeef; background: #f4f8fd; border-radius: 0 2mm 2mm 0; break-inside: avoid; }
+.rquote p { font-size: 8.8pt; white-space: pre-wrap; word-break: break-word; }
+.rquote footer { margin-top: 1mm; font-size: 7pt; color: #6b7399; font-weight: 600; }
+body.no-comments .r-comments { display: none; }
+.r-about { margin-top: 8mm; padding: 4mm 5mm; border-radius: 3mm; background: #f4f8fd; border: 0.3mm solid rgba(46, 49, 146, 0.12); break-inside: avoid; }
+.r-about h3 { font-size: 9.5pt; font-weight: 800; margin-bottom: 1.5mm; }
+.r-about ul { margin: 0; padding-left: 4.5mm; display: grid; gap: 1mm; font-size: 8pt; color: #474f78; }
+
+@media print {
+  html, body.report-page { background: #fff; }
+  .no-print { display: none !important; }
+  .sheet { width: auto; max-width: none; margin: 0; padding: 0; box-shadow: none; border-radius: 0; }
+  .rsec { break-before: page; margin-top: 0; padding-top: 0; border-top: 0; }
+  .rcard, .rquote, .r-kpi, .r-find, .r-about { break-inside: avoid; }
+  .rsec-h { break-after: avoid; }
+}
+/* phone preview only: printing also has a narrow (~695px) layout width, so these must not apply on paper */
+@media screen and (max-width: 760px) {
+  .sheet { padding: 6mm 5mm; margin-top: 12px; }
+  .r-kpis { grid-template-columns: 1fr 1fr; }
+  .r-prios, .rgrid { grid-template-columns: 1fr; }
+  .rcard .hb { grid-template-columns: minmax(80px, 46%) minmax(0, 1fr) 40px; }
+  .rcard .rs { grid-template-columns: 1fr 28px; }
+  .rcard .rs-l { grid-column: 1 / -1; }
+  .rcard .rs-t { grid-column: 1; grid-row: 2; }
+  .rcard .rs-v { grid-column: 2; grid-row: 2; }
+  .rcard .hm { font-size: 6.5pt; min-width: 520px; }
+  .toolbar { padding: 0.6rem 0.8rem; }
+  .tb-right { width: 100%; justify-content: space-between; }
+}

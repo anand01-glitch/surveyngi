@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Shared foundation — tokens, theme, buttons, reveal animations, toast.
+   Brand colours come straight from the Nehru Group logo:
+     sky blue #00AEEF  ·  sun orange #F7941D  ·  indigo #2E3192
+   Light is the default theme; dark is opt-in through the toggle.
+   ========================================================================== */
+:root {
+  color-scheme: light;
+  --bg: #f3f8fd;
+  --bg-2: #e8f1fb;
+  --surface: #ffffff;
+  --surface-2: #f1f6fc;
+  --ink: #121538;
+  --ink-2: #474f78;
+  --ink-3: #6b7399;
+  --line: rgba(46, 49, 146, 0.13);
+  --line-2: rgba(46, 49, 146, 0.07);
+
+  --brand: #00aeef;
+  --brand-ink: #0a6ea8;
+  --brand-soft: rgba(0, 174, 239, 0.12);
+  --navy: #2e3192;
+  --navy-deep: #1b1d6b;
+  --accent: #f7941d;
+  --accent-soft: rgba(247, 148, 29, 0.14);
+  --primary: #2e3192;
+  --on-primary: #ffffff;
+  --danger: #c62f3b;
+  --good: #14804a;
+  --shadow: 0 1px 2px rgba(30, 40, 120, 0.05), 0 10px 30px -14px rgba(30, 40, 120, 0.16);
+  --shadow-lg: 0 2px 4px rgba(30, 40, 120, 0.05), 0 28px 64px -26px rgba(30, 40, 120, 0.32);
+
+  /* data viz (validated blue ramp) */
+  --series-1: #2a78d6;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --muted: #898781;
+  --r1: #86b6ef; --r2: #5598e7; --r3: #2a78d6; --r4: #1c5cab; --r5: #104281;
+  --r1t: #0b1220; --r2t: #0b1220; --r3t: #fff; --r4t: #fff; --r5t: #fff;
+  --s1: #cde2fb; --s2: #9ec5f4; --s3: #6da7ec; --s4: #3987e5; --s5: #256abf; --s6: #184f95; --s7: #0d366b;
+  --s1t: #0b1220; --s2t: #0b1220; --s3t: #0b1220; --s4t: #fff; --s5t: #fff; --s6t: #fff; --s7t: #fff;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #090e1f;
+  --bg-2: #0d1429;
+  --surface: #121a33;
+  --surface-2: #172142;
+  --ink: #eef1ff;
+  --ink-2: #aeb6d8;
+  --ink-3: #8089ad;
+  --line: rgba(160, 175, 255, 0.14);
+  --line-2: rgba(160, 175, 255, 0.07);
+  --brand: #19b9f5;
+  --brand-ink: #58cbf8;
+  --brand-soft: rgba(25, 185, 245, 0.14);
+  --accent-soft: rgba(247, 148, 29, 0.16);
+  --primary: #19b9f5;
+  --on-primary: #04142b;
+  --danger: #ff8a93;
+  --good: #5ccf87;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.35), 0 28px 64px -24px rgba(0, 0, 0, 0.7);
+  --series-1: #3987e5;
+  --grid: #2c2c2a; --axis: #383835; --muted: #898781;
+  --r1: #184f95; --r2: #256abf; --r3: #3987e5; --r4: #6da7ec; --r5: #b7d3f6;
+  --r1t: #fff; --r2t: #fff; --r3t: #0b1220; --r4t: #0b1220; --r5t: #0b1220;
+  --s1: #0d366b; --s2: #184f95; --s3: #256abf; --s4: #3987e5; --s5: #6da7ec; --s6: #9ec5f4; --s7: #cde2fb;
+  --s1t: #fff; --s2t: #fff; --s3t: #fff; --s4t: #0b1220; --s5t: #0b1220; --s6t: #0b1220; --s7t: #0b1220;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+h1, h2, h3, h4, p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+::selection { background: var(--brand); color: #04142b; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ---------------------------------------------------------------- buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  padding: 0.85rem 1.55rem; border-radius: 999px; border: 1px solid transparent;
+  font-weight: 700; font-size: 0.95rem; letter-spacing: 0.005em; text-decoration: none;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s, border-color 0.25s, opacity 0.2s;
+}
+.btn:active { transform: translateY(1px) scale(0.99); }
+.btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+/* primary call-to-action: sun orange, from the logo */
+.btn-gold, .btn-cta {
+  background: linear-gradient(135deg, #ffb347 0%, #f7941d 60%, #ee8210 100%);
+  color: #2a1500;
+  box-shadow: 0 10px 26px -10px rgba(247, 148, 29, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.btn-gold:hover:not([disabled]), .btn-cta:hover:not([disabled]) { transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(247, 148, 29, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.55); }
+.btn-primary { background: var(--primary); color: var(--on-primary); box-shadow: 0 10px 24px -12px var(--primary); }
+.btn-primary:hover:not([disabled]) { transform: translateY(-2px); }
+.btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+.btn-ghost:hover:not([disabled]) { border-color: var(--brand); background: var(--brand-soft); }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
+
+.icon-btn {
+  width: 40px; height: 40px; display: inline-grid; place-items: center; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--surface); transition: background 0.2s, border-color 0.2s, transform 0.3s var(--ease);
+}
+.icon-btn:hover { border-color: var(--brand); background: var(--brand-soft); transform: rotate(18deg); }
+.icon-btn svg { width: 18px; height: 18px; }
+.theme-toggle .i-sun { display: none; }
+:root[data-theme='dark'] .theme-toggle .i-sun { display: block; }
+:root[data-theme='dark'] .theme-toggle .i-moon { display: none; }
+
+/* ------------------------------------------------------------------- brand */
+.brand { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+/* Emblem cropped out of the full logo (no image processing needed) */
+.logo-mark {
+  flex: none; width: 52px; height: 52px; border-radius: 14px; background: #fff url('/assets/logo.jpg') -29px -7px / 110px auto no-repeat;
+  box-shadow: 0 0 0 1px var(--line), 0 6px 16px -8px rgba(30, 40, 120, 0.35);
+}
+.logo-mark.sm { width: 44px; height: 44px; border-radius: 12px; background-size: 93px auto; background-position: -24px -6px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-text strong { font-family: var(--font-display); font-size: 1rem; font-weight: 800; letter-spacing: -0.005em; }
+.brand-text span { font-size: 0.7rem; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+/* ------------------------------------------------------- scroll reveal system */
+.reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0ms); will-change: opacity, transform; }
+.reveal.from-left { transform: translateX(-34px); }
+.reveal.from-right { transform: translateX(34px); }
+.reveal.zoom { transform: scale(0.94); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* -------------------------------------------------------------------- toast */
+.toast-host { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 200; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; }
+.toast {
+  background: var(--navy-deep); color: #f3f4ff; padding: 0.75rem 1.2rem; border-radius: 14px; font-size: 0.92rem; font-weight: 500;
+  box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 174, 239, 0.45);
+  animation: toast-in 0.45s var(--ease) both; max-width: min(92vw, 460px);
+}
+.toast.error { border-color: rgba(255, 138, 147, 0.8); }
+.toast.leaving { animation: toast-out 0.35s var(--ease) both; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(16px) scale(0.96); } }
+@keyframes toast-out { to { opacity: 0; transform: translateY(10px) scale(0.97); } }
+
+/* keep the header tidy on narrow screens */
+.brand { min-width: 0; }
+.brand-text { min-width: 0; }
+.brand-text strong, .brand-text span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 420px) { .brand-text strong { font-size: 0.86rem; } }
